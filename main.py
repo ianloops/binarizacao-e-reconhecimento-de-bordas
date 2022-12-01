@@ -8,15 +8,17 @@ import reconhecimento_bordas as recon
 def main():
     #Arquivos e Parametros
     arq= "imagens/"+input("Informe qual imagem deseja alterar utilizar:")
-    t = int(input("Informe o valor T(Ponto de divisão entre Branco e Preto): "))
+    #arq="imagens/moldeDog.jpg"
     imagem = cv2.imread(arq, 0)
     mascara = np.array([[0, -1, 0], [-1, 4, -1], [0, -1, 0]])
 
     #Binarização de Imagem
     imagemAlterada = np.array(imagem)
-    bin.binarizarImagem(imagem, imagemAlterada, t)
     mostrarHistogramas(imagem, imagemAlterada)
+    t = int(input("Informe o valor T(Ponto de divisão entre Branco e Preto): "))
+    bin.binarizarImagem(imagem, imagemAlterada, t)
     mostrarImagens(imagem, imagemAlterada)
+    #cv2.imwrite(arq + "binarizada", imagemAlterada)
 
     #Reconhecimento de Bordas
     linha, coluna = imagem.shape
@@ -24,6 +26,9 @@ def main():
     recon.reconhecerBordas(imagemAlterada, matrizAuxiliar, mascara)
     mostrarHistogramas(imagem, imagemAlterada)
     mostrarImagens(imagem, imagemAlterada)
+    arq = "imagens/" + input("Como deseja salvar o arquivo?")
+    cv2.imwrite(arq, imagemAlterada)
+
 
 
 def mostrarHistogramas(original, alterada):

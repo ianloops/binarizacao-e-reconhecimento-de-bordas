@@ -17,4 +17,4 @@ def reconhecerBordas(imagemAlterada, matrizAuxiliar, mascara):
                 + (matrizAuxiliar[i + 1][j - 1] * mascara[2][0]) \
                 + (matrizAuxiliar[i + 1][j] * mascara[2][1]) \
                 + (matrizAuxiliar[i + 1][j + 1] * mascara[2][2])
-            imagemAlterada[i][j]/=2
+            imagemAlterada[i][j]
