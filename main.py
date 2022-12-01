@@ -26,7 +26,7 @@ def main():
     recon.reconhecerBordas(imagemAlterada, matrizAuxiliar, mascara)
     mostrarHistogramas(imagem, imagemAlterada)
     mostrarImagens(imagem, imagemAlterada)
-    arq = "imagens/" + input("Como deseja salvar o arquivo?")
+    arq = "imagens/" + input("Como deseja salvar o arquivo?")+".jpg"
     cv2.imwrite(arq, imagemAlterada)
 
 
